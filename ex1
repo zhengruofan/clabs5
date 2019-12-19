@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#define A 100
+void reverse(char s[],int n);
+void swap(char *i,char *j);
+int main(){
+    char s[A];
+    int a;
+    printf("please write some words\n");
+    while((s[a]=getchar())!=EOF)
+    {
+        if(s[a]=='\n'){
+            break;
+        }
+        a++;
+    }
+    int n;
+    n=strlen(s);
+    reverse(s,n);
+    printf("reverse:%s\n",s);
+    return 0;
+}
+void swap(char *i,char *j){
+    int temp;
+    temp=*i;
+    *i=*j;
+    *j=temp;
+}
+void reverse(char s[],int n){
+    static int m=0;
+    if(m<n-1){
+        swap(&s[m++],&s[n-1]);
+        reverse(s,n-1);
+    }
+}
